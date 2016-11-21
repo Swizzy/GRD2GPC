@@ -1,0 +1,9 @@
+--accel - Enables Accelerometers
+--touch - Enables the Touchpad (PS4 Only)
+--gpc=<filename> - Changes the output file/location to whatever you specified in "<filename>", default name is the same as the grd with gpc as the extension instead...
+--cmbname=<ComboName> - Changes the name of the combo generated - default is "grd2gpc"
+--deadzone=## - Changes the stick deadzone (Range: 0 - 99) default value is 20
+--minstick=## - Changes the minimum required change in the sticks to be seen as actual movement, range: 0 - 99 (minus whatever the deadzone is set to, so 0 - 79 by default) the default value is 1
+--minaccel=## - Changes the minimum acceleration to register as a change, range: 0 - 99, default value is 1
+
+Anything other then the above is assumed to be the grd file you wish to process, only one file is ever processed at a time and wildcards are NOT supported

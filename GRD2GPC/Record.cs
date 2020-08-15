@@ -1,6 +1,4 @@
 ﻿using System;
-using System.CodeDom;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -14,16 +12,24 @@ namespace GRD2GPC {
             Buttons = buttons;
         }
 
-        public Record() {
-            Buttons = new int[36];
+        public Record(bool isZen)
+        {
+            if (isZen)
+                Buttons = new int[44];
+            else
+                Buttons = new int[36];
         }
 
-        public static Record FromStream(Stream src) {
+        public static Record FromStream(Stream src, bool isZen) {
             var tmp = new byte[8];
             if (src.Read(tmp, 0, tmp.Length) != tmp.Length)
                 return null;
             var timestamp = BitConverter.ToInt64(tmp, 0);
-            var buttons = new byte[36];
+            byte[] buttons;
+            if (isZen)
+                buttons = new byte[44];
+            else
+                buttons = new byte[36];
             return src.Read(buttons, 0, buttons.Length) != buttons.Length ? null : new Record(timestamp, buttons.Select(b => (int)(sbyte)b).ToArray());
         }
 

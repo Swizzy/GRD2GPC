@@ -1,3 +1,4 @@
+--zen - Enables Cronus Zen support
 --accel - Enables Accelerometers
 --touch - Enables the Touchpad (PS4 Only)
 --gpc=<filename> - Changes the output file/location to whatever you specified in "<filename>", default name is the same as the grd with gpc as the extension instead...
